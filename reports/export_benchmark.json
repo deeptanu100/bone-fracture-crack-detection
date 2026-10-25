@@ -1,0 +1,23 @@
+{
+  "hardware": "AMD Ryzen 9 8940HX / CPU Execution Provider",
+  "input_resolution": "384x384",
+  "file_sizes": {
+    "fp32_onnx_mb": 12.267203330993652,
+    "int8_onnx_mb": 3.275388717651367,
+    "target_fp32_mb": 25.0,
+    "target_int8_mb": 10.0,
+    "meets_size_constraint": true
+  },
+  "latency_ms": {
+    "fp32_mean_ms": 4.357411999590113,
+    "fp32_p95_ms": 4.711980001047777,
+    "int8_mean_ms": 94.95675999991363,
+    "int8_p95_ms": 102.65396499798953,
+    "target_latency_ms": 300.0,
+    "meets_latency_constraint": true
+  },
+  "numerical_fidelity": {
+    "max_abs_diff_fp32": 7.82310962677002e-08,
+    "max_abs_diff_int8": 0.026292867958545685
+  }
+}

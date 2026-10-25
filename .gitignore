@@ -1,0 +1,25 @@
+# Environments
+.venv/
+env/
+venv/
+__pycache__/
+*.pyc
+
+# Data & Large Archives
+data/cache/
+*.zip
+*.tar.gz
+*.xlsx
+*.csv
+temp_input.png
+
+# Heavy intermediate checkpoints
+models/checkpoints/*.pt
+!models/bone_fracture_detector_int8.onnx
+!models/bone_fracture_detector.onnx
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

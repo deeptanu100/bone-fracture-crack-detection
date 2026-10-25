@@ -1,0 +1,52 @@
+# Configuration for Local Lightweight Bone Fracture & Crack Detection Pipeline
+project_name: "bone-fracture-crack-detection"
+seed: 42
+
+# Hardware & Execution
+device: "cuda"          # falls back to "cpu" if cuda unavailable
+mixed_precision: true   # fp16 autocast
+num_workers: 4
+
+# Data Settings
+data:
+  bonefract_zip: "C:/Users/DEEPTANU/Downloads/BoneFract A Bone Fracture Dataset/BoneFract A Bone Fracture Dataset/BoneFract A Bone Fracture Dataset.zip"
+  excel_meta: "BoneFract A Bone Fracture Dataset/BoneFract_Xray_Dataset_Sheets.xlsx"
+  c17_dir: "C:/Users/DEEPTANU/Downloads/Human Bone Fracture C17 Dataset/Human Bone Fracture C17 Dataset"
+  img_size: 384         # 384x384 gives optimal latency vs fine-crack resolution
+  in_channels: 3
+  pos_weight: 2.44      # Inversely proportional to 29.1% positive class ratio
+  cache_dir: "data/cache"
+
+# Model Architecture
+model:
+  architecture: "mobilenet_v3_large"  # candidate: "mobilenet_v3_large", "efficientnet_b0"
+  pretrained: true
+  num_classes: 1
+  dropout: 0.2
+  target_layer: "features.16"         # Final convolutional block for Grad-CAM
+
+# Training Hyperparameters
+training:
+  batch_size: 32
+  num_epochs: 10
+  lr: 0.0003
+  min_lr: 0.000001
+  weight_decay: 0.01
+  early_stopping_patience: 3
+  checkpoint_dir: "models/checkpoints"
+  best_model_path: "models/best_model.pt"
+
+# Clinical Decision Bands & Thresholds
+evaluation:
+  high_sensitivity_threshold: 0.35  # Prioritizes recall (missed fracture is critical)
+  high_specificity_threshold: 0.65
+  uncertainty_band: [0.35, 0.65]    # Flagged for human radiologist review
+  reports_dir: "reports"
+
+# Export & Optimization
+export:
+  onnx_fp32_path: "models/bone_fracture_detector.onnx"
+  onnx_int8_path: "models/bone_fracture_detector_int8.onnx"
+  target_file_size_mb: 25.0
+  target_quantized_mb: 10.0
+  target_cpu_latency_ms: 300.0
