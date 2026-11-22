@@ -28,7 +28,7 @@ All benchmarks were measured locally on an **AMD Ryzen 9 8940HX (16 Cores / 32 T
 | **Offline Execution** | 100% Local | Zero API / Network calls | Zero API / Network calls | ✅ **Passed** |
 
 Workflow
-[![Architecture diagram of deeptanu100/bone-fracture-crack-detection](https://gitdiagram.com/deeptanu100/bone-fracture-crack-detection/diagram.png)](https://gitdiagram.com/deeptanu100/bone-fracture-crack-detection?utm_source=readme&utm_medium=picture)
+<img width="6478" height="3661" alt="diagram" src="https://github.com/user-attachments/assets/643dc410-d10f-4b32-b44b-ed7dfb6989e0" />
 
 ---
 
