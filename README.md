@@ -27,6 +27,9 @@ All benchmarks were measured locally on an **AMD Ryzen 9 8940HX (16 Cores / 32 T
 | **Inference Dependency** | No PyTorch at runtime | `onnxruntime` only | `onnxruntime` only | ✅ **Passed** |
 | **Offline Execution** | 100% Local | Zero API / Network calls | Zero API / Network calls | ✅ **Passed** |
 
+Workflow
+[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/deeptanu100/bone-fracture-crack-detection?utm_source=readme&utm_medium=badge)
+
 ---
 
 ## 📊 Datasets & Links
